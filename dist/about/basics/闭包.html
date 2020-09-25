@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>作用域和闭包 | Kira技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" !">
+    <link rel="preload" href="/assets/css/0.styles.2d08b339.css" as="style"><link rel="preload" href="/assets/js/app.44778972.js" as="script"><link rel="preload" href="/assets/js/2.32ad2a78.js" as="script"><link rel="preload" href="/assets/js/16.fc71a10a.js" as="script"><link rel="preload" href="/assets/js/3.6781ba49.js" as="script"><link rel="prefetch" href="/assets/js/10.6eff9474.js"><link rel="prefetch" href="/assets/js/11.dc8c6756.js"><link rel="prefetch" href="/assets/js/12.d6345f35.js"><link rel="prefetch" href="/assets/js/13.8aa7e491.js"><link rel="prefetch" href="/assets/js/14.b586caae.js"><link rel="prefetch" href="/assets/js/15.c4206bef.js"><link rel="prefetch" href="/assets/js/17.68095090.js"><link rel="prefetch" href="/assets/js/18.88b35172.js"><link rel="prefetch" href="/assets/js/19.0f0da65b.js"><link rel="prefetch" href="/assets/js/20.ba091569.js"><link rel="prefetch" href="/assets/js/21.3059903f.js"><link rel="prefetch" href="/assets/js/22.bb566f79.js"><link rel="prefetch" href="/assets/js/23.d8e5c881.js"><link rel="prefetch" href="/assets/js/24.1856dde2.js"><link rel="prefetch" href="/assets/js/25.33c04eb3.js"><link rel="prefetch" href="/assets/js/26.575cc80e.js"><link rel="prefetch" href="/assets/js/27.87c08ed7.js"><link rel="prefetch" href="/assets/js/28.9adb8ab0.js"><link rel="prefetch" href="/assets/js/29.55cfdfba.js"><link rel="prefetch" href="/assets/js/30.1b1c42b3.js"><link rel="prefetch" href="/assets/js/31.adb1b447.js"><link rel="prefetch" href="/assets/js/32.06d331d1.js"><link rel="prefetch" href="/assets/js/4.6ea63ba4.js"><link rel="prefetch" href="/assets/js/5.e4707e7f.js"><link rel="prefetch" href="/assets/js/6.67a45913.js"><link rel="prefetch" href="/assets/js/7.855d7434.js"><link rel="prefetch" href="/assets/js/8.77959c25.js"><link rel="prefetch" href="/assets/js/9.f341ca05.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2d08b339.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Kira技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/basics/事件流.html" class="nav-link">
+  js基础
+</a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/节流防抖.html" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/251205668/Travel" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  去哪儿旅行
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/251205668/restaurant" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  饿了么外卖前台
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/251205668/mymusic" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  魔法音乐App
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/251205668" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/basics/事件流.html" class="nav-link">
+  js基础
+</a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/节流防抖.html" class="nav-link">
+  性能优化
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="项目" class="dropdown-title"><span class="title">项目</span> <span class="arrow down"></span></button> <button type="button" aria-label="项目" class="mobile-dropdown-title"><span class="title">项目</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/251205668/Travel" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  去哪儿旅行
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/251205668/restaurant" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  饿了么外卖前台
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/251205668/mymusic" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  魔法音乐App
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <a href="https://github.com/251205668" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JS基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/basics/事件流.html" class="sidebar-link">事件流</a></li><li><a href="/about/basics/数据类型.html" class="sidebar-link">数据类型</a></li><li><a href="/about/basics/new的过程.html" class="sidebar-link">new的过程</a></li><li><a href="/about/basics/原型链.html" class="sidebar-link">原型链</a></li><li><a href="/about/basics/闭包.html" class="active sidebar-link">作用域和闭包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#作用域" class="sidebar-link">作用域</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#闭包" class="sidebar-link">闭包</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#闭包在实际场景的应用" class="sidebar-link">闭包在实际场景的应用</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#this" class="sidebar-link">this</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#手写-bind" class="sidebar-link">手写 bind</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#手写-call" class="sidebar-link">手写 call</a></li><li class="sidebar-sub-header"><a href="/about/basics/闭包.html#手写-apply" class="sidebar-link">手写 apply</a></li></ul></li><li><a href="/about/basics/异步.html" class="sidebar-link">异步</a></li><li><a href="/about/brower/事件循环.html" class="sidebar-link">事件循环</a></li><li><a href="/about/basics/arguments.html" class="sidebar-link">arguments 参数传递</a></li><li><a href="/about/basics/promise.html" class="sidebar-link">promise</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VUE基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Wepback</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常见考点</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="作用域和闭包"><a href="#作用域和闭包" class="header-anchor">#</a> 作用域和闭包</h1> <ul><li>全局作用域</li> <li>函数作用域</li> <li>块级作用域（ES6）</li></ul> <h2 id="作用域"><a href="#作用域" class="header-anchor">#</a> 作用域</h2> <div class="language-$xslt extra-class"><pre class="language-text"><code>let a =  0;
+function fn1() {
+   let a1 = 10;
+   function fn2(){
+       let a1 = 9;
+       let a2  =200;
+       // a2 a1 a 在使用时会在作用域内，从离调用最近的地方到离调用远的作用域内找。
+       console.log(a2 + a1 + a)
+   }
+   fn2()
+}
+fn1();
+</code></pre></div><h2 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h2> <p>两种表现（既闭包就是函数定义的地方和函数执行的地方不一致）
+因为 js 是有作用域的，函数也拥有自己的作用域，如果我们要想访问到作用域内的变量，需要通过闭包。</p> <ul><li>函数作为参数被传递</li> <li>函数作为返回值被返回</li></ul> <p>闭包内的自由变量寻找的时候，是在函数定义的地方向上级作用域去寻找。</p> <div class="language- extra-class"><pre class="language-text"><code>//函数作为返回值被返回
+function fn1(){
+    let a = 100;
+    return function(){
+        console.log(a)
+    }
+}
+let a = 200
+let result = fn1();
+console.log(result());// 打印结果是100
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>//函数作为参数被传递
+function fn2(fn){
+    let a = 100
+    fn()//打印结果是200
+}
+let a = 200
+function fn(){
+    console.log(a)
+}
+</code></pre></div><h2 id="闭包在实际场景的应用"><a href="#闭包在实际场景的应用" class="header-anchor">#</a> 闭包在实际场景的应用</h2> <ul><li>闭包隐秘数据只提供 API，我们通过调用闭包内提供的 API 来访问函数函数内的变量</li></ul> <div class="language- extra-class"><pre class="language-text"><code>function fn(){
+    const data = {} //闭包内的数据，外部不可直接访问
+    return{
+        get(key){
+            return data[key]
+        },
+        set(key,val){
+            data[key] = val
+        }
+    }
+}
+const c = fn();
+c.set('name','kira')
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>i 是全局作用域
+let a,i
+for(i=1,i&lt;10,i++){
+    a = document.createElement('a')
+    a.innerHTML = i  +'&lt;br&gt;'
+    a.addEventListener('click',function(){
+        alert(i) // 十个标签弹出的结果都是 10，因为遍历先执行，每个a标签被click时，i早就变成来10，因为i是全局作用域
+    })
+}
+document.body.appendChild(a)
+
+改造
+i改为块级作用域,这样每次循环都会产生一个块级作用域。
+let a
+for(let =1,i&lt;10,i++){
+    a = document.createElement('a')
+    a.innerHTML = i  +'&lt;br&gt;'
+    a.addEventListener('click',function(){
+        alert(i) // 十个标签弹出的结果都是 1，2，3，4.....
+    })
+}
+</code></pre></div><h2 id="this"><a href="#this" class="header-anchor">#</a> this</h2> <p>this 取出的值是在函数执行的时候定义的
+this 的使用场景</p> <ul><li>作为普通函数（this 指向 window）</li> <li>使用 call apply bind（传入什么 this 就指向什么）</li> <li>作为对象方法被调用（this 指对象本身）</li> <li>在 class 方法中调用（this 指当前实例）</li> <li>箭头函数（箭头函数的取值是取它上级作用域的值）</li></ul> <div class="language- extra-class"><pre class="language-text"><code>   f.__proto__ == Function.prototype // true 所以 bind call apply 都在 Function.prototype 实现的。
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>function fn1(){
+    console.log(this);
+}
+fn1(); //打印结果window
+
+//通过call改变了this的指向
+fn1.call({x:100}) //打印结果 {x:100}
+
+//通过bind改变了this的指向
+const fn1 = fn1.bind({x;200})
+fn2() //{x:200}
+
+const xx = {
+    name:'zhangsan',
+    play(){
+        //箭头函数中的this是取它上级作用域的值
+        setTimeOut(()=&gt;{
+            console.log(this)//this指向xx对象
+        })
+    }
+    play(){
+        setTimeOut(function(){
+            console.log(this)//this指向window
+        })
+    }
+
+}
+
+</code></pre></div><h2 id="手写-bind"><a href="#手写-bind" class="header-anchor">#</a> 手写 bind</h2> <p>bind 的使用</p> <div class="language- extra-class"><pre class="language-text"><code>function f() {
+    console.log('执行了')
+}
+
+Function.prototype.bind1 = function () {
+    const self = this; //指向f
+    //参数转化为数组
+    let args = Array.prototype.slice.call(arguments);
+    //把第一项,要执向的对象提取出来
+    const start = args.shift();
+    console.log(args);
+
+    //bind的执行是返回一个函数
+    return function () {
+       return  self.apply(start,args)
+    }
+
+};
+const fn2  = f.bind1({},1,2,4);
+//接收返回的函数，并执行
+const  res = fn2();
+console.log(res);
+
+</code></pre></div><h2 id="手写-call"><a href="#手写-call" class="header-anchor">#</a> 手写 call</h2> <h2 id="手写-apply"><a href="#手写-apply" class="header-anchor">#</a> 手写 apply</h2></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/251205668/vuepressdemo/edit/master/docs/about/basics/闭包.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-9-25 22:52:24</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/basics/原型链.html" class="prev">
+        原型链
+      </a></span> <span class="next"><a href="/about/basics/异步.html">
+        异步
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.44778972.js" defer></script><script src="/assets/js/2.32ad2a78.js" defer></script><script src="/assets/js/16.fc71a10a.js" defer></script><script src="/assets/js/3.6781ba49.js" defer></script>
+  </body>
+</html>
