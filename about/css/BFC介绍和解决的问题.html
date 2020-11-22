@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ZH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>BFC 介绍和解决的问题 | Kira技术博客</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content=" ">
+    <link rel="preload" href="/assets/css/0.styles.2d08b339.css" as="style"><link rel="preload" href="/assets/js/app.df6f2357.js" as="script"><link rel="preload" href="/assets/js/2.6bd0a324.js" as="script"><link rel="preload" href="/assets/js/23.14528bac.js" as="script"><link rel="preload" href="/assets/js/3.9ab279fd.js" as="script"><link rel="prefetch" href="/assets/js/10.b56e1a36.js"><link rel="prefetch" href="/assets/js/11.eac54f01.js"><link rel="prefetch" href="/assets/js/12.4b3eb5ec.js"><link rel="prefetch" href="/assets/js/13.4e7adc91.js"><link rel="prefetch" href="/assets/js/14.f0bb4954.js"><link rel="prefetch" href="/assets/js/15.e2f67145.js"><link rel="prefetch" href="/assets/js/16.b04d6045.js"><link rel="prefetch" href="/assets/js/17.3ca72435.js"><link rel="prefetch" href="/assets/js/18.3100430d.js"><link rel="prefetch" href="/assets/js/19.bc262962.js"><link rel="prefetch" href="/assets/js/20.741b85c1.js"><link rel="prefetch" href="/assets/js/21.ea99a4ba.js"><link rel="prefetch" href="/assets/js/22.197e810c.js"><link rel="prefetch" href="/assets/js/24.f5724a67.js"><link rel="prefetch" href="/assets/js/25.2f556c9f.js"><link rel="prefetch" href="/assets/js/26.341759bf.js"><link rel="prefetch" href="/assets/js/27.a10748c5.js"><link rel="prefetch" href="/assets/js/28.af9ae556.js"><link rel="prefetch" href="/assets/js/29.f32e18a0.js"><link rel="prefetch" href="/assets/js/30.f6b14f68.js"><link rel="prefetch" href="/assets/js/31.296f5656.js"><link rel="prefetch" href="/assets/js/32.4fe144fd.js"><link rel="prefetch" href="/assets/js/33.cd83bbec.js"><link rel="prefetch" href="/assets/js/34.1df54dd5.js"><link rel="prefetch" href="/assets/js/35.54dc645e.js"><link rel="prefetch" href="/assets/js/36.cfa1e89e.js"><link rel="prefetch" href="/assets/js/37.436344c1.js"><link rel="prefetch" href="/assets/js/38.1732e7fb.js"><link rel="prefetch" href="/assets/js/39.33de4087.js"><link rel="prefetch" href="/assets/js/4.faa48289.js"><link rel="prefetch" href="/assets/js/40.35b4e42f.js"><link rel="prefetch" href="/assets/js/41.cc8ec1a3.js"><link rel="prefetch" href="/assets/js/42.7e40f994.js"><link rel="prefetch" href="/assets/js/43.97d9d597.js"><link rel="prefetch" href="/assets/js/44.251df7d0.js"><link rel="prefetch" href="/assets/js/45.f6599ccc.js"><link rel="prefetch" href="/assets/js/46.1eafcf5c.js"><link rel="prefetch" href="/assets/js/47.66cac38c.js"><link rel="prefetch" href="/assets/js/5.d4eacfd8.js"><link rel="prefetch" href="/assets/js/6.441cc0de.js"><link rel="prefetch" href="/assets/js/7.6859a1df.js"><link rel="prefetch" href="/assets/js/8.9fa748cd.js"><link rel="prefetch" href="/assets/js/9.e3f6d9dc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2d08b339.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Kira技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/basics/事件流.html" class="nav-link">
+  js基础
+</a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/节流防抖.html" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/zhaohongwei978" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/about/basics/事件流.html" class="nav-link">
+  js基础
+</a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/about/question/vue.html" class="nav-link">
+  常见考点
+</a></div><div class="nav-item"><a href="/about/nature/节流防抖.html" class="nav-link">
+  性能优化
+</a></div> <a href="https://github.com/zhaohongwei978" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/basics/事件流.html" class="sidebar-link">事件流</a></li><li><a href="/about/basics/数据类型.html" class="sidebar-link">数据类型</a></li><li><a href="/about/basics/数组操作.html" class="sidebar-link">数组操作</a></li><li><a href="/about/basics/new的过程.html" class="sidebar-link">new 的过程</a></li><li><a href="/about/basics/原型链.html" class="sidebar-link">原型链</a></li><li><a href="/about/basics/闭包.html" class="sidebar-link">作用域和闭包</a></li><li><a href="/about/basics/异步.html" class="sidebar-link">异步</a></li><li><a href="/about/brower/事件循环.html" class="sidebar-link">事件循环</a></li><li><a href="/about/brower/渲染过程.html" class="sidebar-link">渲染过程</a></li><li><a href="/about/basics/arguments.html" class="sidebar-link">arguments 参数传递</a></li><li><a href="/about/basics/promise.html" class="sidebar-link">promise</a></li><li><a href="/about/basics/ts学习.html" class="sidebar-link">ts 学习</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>CSS</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/css/盒子模型.html" class="sidebar-link">盒子模型</a></li><li><a href="/about/css/清除浮动的几种方式.html" class="sidebar-link">清除浮动的几种方式</a></li><li><a href="/about/css/BFC介绍和解决的问题.html" class="active sidebar-link">BFC 介绍和解决的问题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#什么是-bfc" class="sidebar-link">什么是 BFC？</a></li><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#bfc-的渲染规则" class="sidebar-link">BFC 的渲染规则？</a></li><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#如何产生-bfc" class="sidebar-link">如何产生 BFC?</a></li><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#问题-1-同一个-bfc-下外边距会发生折叠-margin-重叠问题" class="sidebar-link">问题 1 同一个 BFC 下外边距会发生折叠（margin 重叠问题）</a></li><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#问题-2-bfc-解决高度塌陷" class="sidebar-link">问题 2 BFC 解决高度塌陷</a></li><li class="sidebar-sub-header"><a href="/about/css/BFC介绍和解决的问题.html#问题-3-bfc-可以阻止元素被浮动元素覆盖" class="sidebar-link">问题 3 BFC 可以阻止元素被浮动元素覆盖</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>VUE基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Wepback</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常见考点</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>性能优化</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="bfc-介绍和解决的问题"><a href="#bfc-介绍和解决的问题" class="header-anchor">#</a> BFC 介绍和解决的问题</h1> <h2 id="什么是-bfc"><a href="#什么是-bfc" class="header-anchor">#</a> 什么是 BFC？</h2> <p>它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。</p> <h2 id="bfc-的渲染规则"><a href="#bfc-的渲染规则" class="header-anchor">#</a> BFC 的渲染规则？</h2> <ul><li>1 内部元素会在垂直方向上一个接一个放置。</li> <li>2 块级元素垂直方向距离由 margin 决定。属于同一个 BFC 的两个相邻元素 margin 会发生重叠。</li> <li>3 BFC 的区域不会与浮动元素重叠。</li> <li>4 BFC 是一个隔离的区域，容易内子元素和容器外的元素互不影响。</li> <li>5 浮动元素也参与计算 BFC 高度</li></ul> <h2 id="如何产生-bfc"><a href="#如何产生-bfc" class="header-anchor">#</a> 如何产生 BFC?</h2> <p>只要元素满足以下任一条件即可触发 BFC 特性：</p> <ul><li>浮动元素 float 除 none 以外的值</li> <li>绝对定位元素 position (absolute fixed)</li> <li>display 为 inline-block table-cell flex</li> <li>overfow 除 visible 以外的值（hidden auto scroll</li></ul> <h2 id="问题-1-同一个-bfc-下外边距会发生折叠-margin-重叠问题"><a href="#问题-1-同一个-bfc-下外边距会发生折叠-margin-重叠问题" class="header-anchor">#</a> 问题 1 同一个 BFC 下外边距会发生折叠（margin 重叠问题）</h2> <div class="language-angular2 extra-class"><pre class="language-text"><code>&lt;style&gt;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: #42b983;
+    margin: 10px;
+}
+&lt;/style&gt;
+
+//因为有body根元素会产生一个块级格式化上下文（BFC）
+&lt;body&gt;
+    &lt;div&gt;test1&lt;/div&gt;
+    &lt;div&gt;test2&lt;/div&gt;
+&lt;/body&gt;
+</code></pre></div><h2 id="问题-2-bfc-解决高度塌陷"><a href="#问题-2-bfc-解决高度塌陷" class="header-anchor">#</a> 问题 2 BFC 解决高度塌陷</h2> <p>当为子元素设置浮动的时候，子元素就会完全脱离文档流，此时将会导致子元素无法撑开父元素，导致父元素的高度塌陷</p> <p>由于浮动，容器内元素脱离了文档流 所以容器只剩下 10px 边距对象，如果触发 BFC，BFC 可以包裹浮动元素。</p> <div class="language-angular2 extra-class"><pre class="language-text"><code>&lt;div style=&quot;border: 5px solid red;overfow:hidden&quot;&gt;
+    &lt;div style=&quot;width: 100px ;height: 100px;background-color: #42b983;float: left&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></div><h2 id="问题-3-bfc-可以阻止元素被浮动元素覆盖"><a href="#问题-3-bfc-可以阻止元素被浮动元素覆盖" class="header-anchor">#</a> 问题 3 BFC 可以阻止元素被浮动元素覆盖</h2> <p>原因：因为 float 浮起的元素会脱离文档流，不占用文档流，自然就会遮挡其他盒子。</p> <div class="language-angular2 extra-class"><pre class="language-text"><code>div style=&quot;width: 100px ;height: 100px;background-color: #42b983;float: left&quot;&gt;浮动元素&lt;/div&gt;
+&lt;div style=&quot;width: 200px;height: 200px;background-color: orangered;overflow:hidden&quot;&gt;&lt;/div&gt;
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/zhaohongwei978/edit/master/docs/about/css/BFC介绍和解决的问题.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-11-18 10:13:40</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/about/css/清除浮动的几种方式.html" class="prev">
+        清除浮动的几种方式
+      </a></span> <span class="next"><a href="/about/vue/newVue时候都做了什么.html">
+        new Vue 时候都做了什么？
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.df6f2357.js" defer></script><script src="/assets/js/2.6bd0a324.js" defer></script><script src="/assets/js/23.14528bac.js" defer></script><script src="/assets/js/3.9ab279fd.js" defer></script>
+  </body>
+</html>
