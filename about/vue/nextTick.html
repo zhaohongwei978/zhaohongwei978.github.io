@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>nextTick 实现 | Kira技术博客</title>
+    <title>$nextTick相关 | Kira技术博客</title>
     <meta name="generator" content="VuePress 1.8.0">
     <link rel="icon" href="/favicon.ico">
     <meta name="description" content=" ">
     
-    <link rel="preload" href="/assets/css/0.styles.ecb6249f.css" as="style"><link rel="preload" href="/assets/js/app.274e6c83.js" as="script"><link rel="preload" href="/assets/js/2.efaf6d33.js" as="script"><link rel="preload" href="/assets/js/48.824be7f2.js" as="script"><link rel="preload" href="/assets/js/5.822c1d74.js" as="script"><link rel="prefetch" href="/assets/js/10.e83558ce.js"><link rel="prefetch" href="/assets/js/11.08271d19.js"><link rel="prefetch" href="/assets/js/12.8dc3c54c.js"><link rel="prefetch" href="/assets/js/13.2d67219d.js"><link rel="prefetch" href="/assets/js/14.7b7c0423.js"><link rel="prefetch" href="/assets/js/15.e8d5a192.js"><link rel="prefetch" href="/assets/js/16.b1e150ee.js"><link rel="prefetch" href="/assets/js/17.b0c1df6b.js"><link rel="prefetch" href="/assets/js/18.7d746e4b.js"><link rel="prefetch" href="/assets/js/19.da7d2015.js"><link rel="prefetch" href="/assets/js/20.7512212a.js"><link rel="prefetch" href="/assets/js/21.61791bcc.js"><link rel="prefetch" href="/assets/js/22.d6642ae9.js"><link rel="prefetch" href="/assets/js/23.c65c3531.js"><link rel="prefetch" href="/assets/js/24.35d9911a.js"><link rel="prefetch" href="/assets/js/25.aaa5055f.js"><link rel="prefetch" href="/assets/js/26.20ccb71b.js"><link rel="prefetch" href="/assets/js/27.e272cce1.js"><link rel="prefetch" href="/assets/js/28.4ff9d4b5.js"><link rel="prefetch" href="/assets/js/29.eda09df2.js"><link rel="prefetch" href="/assets/js/3.d02e2410.js"><link rel="prefetch" href="/assets/js/30.7bf391b8.js"><link rel="prefetch" href="/assets/js/31.f0a2073f.js"><link rel="prefetch" href="/assets/js/32.00ccba44.js"><link rel="prefetch" href="/assets/js/33.313db342.js"><link rel="prefetch" href="/assets/js/34.cb06ffa2.js"><link rel="prefetch" href="/assets/js/35.8815dcac.js"><link rel="prefetch" href="/assets/js/36.510b71ef.js"><link rel="prefetch" href="/assets/js/37.a6c4409d.js"><link rel="prefetch" href="/assets/js/38.df1b64aa.js"><link rel="prefetch" href="/assets/js/39.1a4cb6f2.js"><link rel="prefetch" href="/assets/js/4.9572866f.js"><link rel="prefetch" href="/assets/js/40.4c073969.js"><link rel="prefetch" href="/assets/js/41.0974281d.js"><link rel="prefetch" href="/assets/js/42.ea339877.js"><link rel="prefetch" href="/assets/js/43.95da82de.js"><link rel="prefetch" href="/assets/js/44.630cac1f.js"><link rel="prefetch" href="/assets/js/45.9c6fecd6.js"><link rel="prefetch" href="/assets/js/46.8b6b51b1.js"><link rel="prefetch" href="/assets/js/47.ff005780.js"><link rel="prefetch" href="/assets/js/49.1a29be49.js"><link rel="prefetch" href="/assets/js/50.696cb0fc.js"><link rel="prefetch" href="/assets/js/51.c79392a2.js"><link rel="prefetch" href="/assets/js/52.53dfedce.js"><link rel="prefetch" href="/assets/js/53.43fd9931.js"><link rel="prefetch" href="/assets/js/54.50637ee9.js"><link rel="prefetch" href="/assets/js/55.3447ec10.js"><link rel="prefetch" href="/assets/js/56.ea561059.js"><link rel="prefetch" href="/assets/js/57.bf65e5a8.js"><link rel="prefetch" href="/assets/js/58.b20a2c74.js"><link rel="prefetch" href="/assets/js/59.d9983e79.js"><link rel="prefetch" href="/assets/js/6.47db2be8.js"><link rel="prefetch" href="/assets/js/60.c0b547c1.js"><link rel="prefetch" href="/assets/js/61.6f6436af.js"><link rel="prefetch" href="/assets/js/7.e4935df1.js"><link rel="prefetch" href="/assets/js/8.9d57c77e.js"><link rel="prefetch" href="/assets/js/9.a2dbc8ae.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.ecb6249f.css">
+    <link rel="preload" href="/assets/css/0.styles.8877e4ba.css" as="style"><link rel="preload" href="/assets/js/app.a3da91ab.js" as="script"><link rel="preload" href="/assets/js/2.53bcdd8f.js" as="script"><link rel="preload" href="/assets/js/55.65db386b.js" as="script"><link rel="preload" href="/assets/js/5.e13b5350.js" as="script"><link rel="prefetch" href="/assets/js/10.675d1f55.js"><link rel="prefetch" href="/assets/js/11.2d0c45ed.js"><link rel="prefetch" href="/assets/js/12.8deb03aa.js"><link rel="prefetch" href="/assets/js/13.fe0068ef.js"><link rel="prefetch" href="/assets/js/14.7136c411.js"><link rel="prefetch" href="/assets/js/15.15c81bd6.js"><link rel="prefetch" href="/assets/js/16.8fc5ffaf.js"><link rel="prefetch" href="/assets/js/17.7e4d51d8.js"><link rel="prefetch" href="/assets/js/18.dfbd277e.js"><link rel="prefetch" href="/assets/js/19.f5c60ab5.js"><link rel="prefetch" href="/assets/js/20.defc19db.js"><link rel="prefetch" href="/assets/js/21.b3bbb785.js"><link rel="prefetch" href="/assets/js/22.4323fa5f.js"><link rel="prefetch" href="/assets/js/23.2c6d7e16.js"><link rel="prefetch" href="/assets/js/24.0bcfcbb6.js"><link rel="prefetch" href="/assets/js/25.20b6a981.js"><link rel="prefetch" href="/assets/js/26.ba0a3f99.js"><link rel="prefetch" href="/assets/js/27.55a25610.js"><link rel="prefetch" href="/assets/js/28.d98f17b0.js"><link rel="prefetch" href="/assets/js/29.3c74e390.js"><link rel="prefetch" href="/assets/js/3.f5ecc680.js"><link rel="prefetch" href="/assets/js/30.b572a145.js"><link rel="prefetch" href="/assets/js/31.0196fbd1.js"><link rel="prefetch" href="/assets/js/32.e39cbf4d.js"><link rel="prefetch" href="/assets/js/33.fcd348c4.js"><link rel="prefetch" href="/assets/js/34.ba24683b.js"><link rel="prefetch" href="/assets/js/35.ded5991a.js"><link rel="prefetch" href="/assets/js/36.ca58d2f1.js"><link rel="prefetch" href="/assets/js/37.663284f9.js"><link rel="prefetch" href="/assets/js/38.a9a90b5e.js"><link rel="prefetch" href="/assets/js/39.6111125d.js"><link rel="prefetch" href="/assets/js/4.e9acd722.js"><link rel="prefetch" href="/assets/js/40.072bdc93.js"><link rel="prefetch" href="/assets/js/41.a89d4128.js"><link rel="prefetch" href="/assets/js/42.d8bc7dda.js"><link rel="prefetch" href="/assets/js/43.aa13d0e9.js"><link rel="prefetch" href="/assets/js/44.dc30511a.js"><link rel="prefetch" href="/assets/js/45.77a645f2.js"><link rel="prefetch" href="/assets/js/46.518d43d3.js"><link rel="prefetch" href="/assets/js/47.da43d42d.js"><link rel="prefetch" href="/assets/js/48.c0d2ec59.js"><link rel="prefetch" href="/assets/js/49.788f312c.js"><link rel="prefetch" href="/assets/js/50.5c07cf0a.js"><link rel="prefetch" href="/assets/js/51.671eb16e.js"><link rel="prefetch" href="/assets/js/52.af2ed7f8.js"><link rel="prefetch" href="/assets/js/53.f53c45b2.js"><link rel="prefetch" href="/assets/js/54.c9904866.js"><link rel="prefetch" href="/assets/js/56.cc73f342.js"><link rel="prefetch" href="/assets/js/57.0562c171.js"><link rel="prefetch" href="/assets/js/58.16965c2f.js"><link rel="prefetch" href="/assets/js/59.878f5c58.js"><link rel="prefetch" href="/assets/js/6.e0a8d5cc.js"><link rel="prefetch" href="/assets/js/60.c8ac10eb.js"><link rel="prefetch" href="/assets/js/61.4638b213.js"><link rel="prefetch" href="/assets/js/62.bac8b9fa.js"><link rel="prefetch" href="/assets/js/63.c2400142.js"><link rel="prefetch" href="/assets/js/64.adbc9a8b.js"><link rel="prefetch" href="/assets/js/65.e782c444.js"><link rel="prefetch" href="/assets/js/66.ced92c93.js"><link rel="prefetch" href="/assets/js/67.d724e40b.js"><link rel="prefetch" href="/assets/js/68.0c3fdabc.js"><link rel="prefetch" href="/assets/js/7.867eb973.js"><link rel="prefetch" href="/assets/js/8.6e8d9a62.js"><link rel="prefetch" href="/assets/js/9.e33676ee.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8877e4ba.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Kira技术博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
@@ -18,6 +18,8 @@
   项目经历
 </a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
   微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
 </a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
   小程序架构
 </a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
@@ -34,6 +36,8 @@
   项目经历
 </a></div><div class="nav-item"><a href="/about/project/微前端.html" class="nav-link">
   微前端
+</a></div><div class="nav-item"><a href="/about/project/性能监控.html" class="nav-link">
+  性能监控
 </a></div><div class="nav-item"><a href="/about/project/小程序架构设计.html" class="nav-link">
   小程序架构
 </a></div><div class="nav-item"><a href="/about/vue/生命周期.html" class="nav-link">
@@ -44,99 +48,100 @@
   性能优化
 </a></div> <a href="https://github.com/zhaohongwei978" target="_blank" rel="noopener noreferrer" class="repo-link">
     Github
-    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>JS基础</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/basics/dsBridge.html" class="sidebar-link">JSBridge通信过程</a></li><li><a href="/about/basics/事件流.html" class="sidebar-link">事件流</a></li><li><a href="/about/basics/跨域.html" class="sidebar-link">跨域</a></li><li><a href="/about/basics/generator.html" class="sidebar-link">generator</a></li><li><a href="/about/basics/Object.html" class="sidebar-link">Object</a></li><li><a href="/about/basics/数据类型.html" class="sidebar-link">数据类型</a></li><li><a href="/about/basics/数组操作.html" class="sidebar-link">数组操作</a></li><li><a href="/about/basics/new的过程.html" class="sidebar-link">new 的过程</a></li><li><a href="/about/basics/原型链.html" class="sidebar-link">原型链</a></li><li><a href="/about/basics/闭包.html" class="sidebar-link">作用域和闭包</a></li><li><a href="/about/basics/异步.html" class="sidebar-link">异步</a></li><li><a href="/about/brower/事件循环.html" class="sidebar-link">事件循环</a></li><li><a href="/about/brower/渲染过程.html" class="sidebar-link">渲染过程</a></li><li><a href="/about/basics/arguments.html" class="sidebar-link">arguments 参数传递</a></li><li><a href="/about/basics/promise.html" class="sidebar-link">promise</a></li><li><a href="/about/basics/ts学习.html" class="sidebar-link">ts 学习</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>VUE基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/vue/newVue时候都做了什么.html" class="sidebar-link">new Vue 时候都做了什么？</a></li><li><a href="/about/vue/vue实例挂载.html" class="sidebar-link">vue 实例挂载</a></li><li><a href="/about/vue/render函数.html" class="sidebar-link">render 函数</a></li><li><a href="/about/vue/虚拟DOM.html" class="sidebar-link">虚拟 DOM</a></li><li><a href="/about/vue/update.html" class="sidebar-link">vue 更新</a></li><li><a href="/about/vue/watch实现.html" class="sidebar-link">watch 实现</a></li><li><a href="/about/vue/nextTick.html" aria-current="page" class="active sidebar-link">nextTick 实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#nexttick-的表现" class="sidebar-link">nextTick 的表现？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#数据变化时-weather-如何更新" class="sidebar-link">数据变化时，weather 如何更新？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#queueweather-对-weather-去重" class="sidebar-link">queueWeather 对 weather 去重？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#为什么会使用-nexttick" class="sidebar-link">为什么会使用 nextTick?</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#为什么我们频繁修改-data-属性-不会多次更新-view" class="sidebar-link">为什么我们频繁修改 data 属性，不会多次更新 view？</a></li></ul></li><li><a href="/about/vue/路由原理.html" class="sidebar-link">路由原理</a></li><li><a href="/about/vue/生命周期.html" class="sidebar-link">生命周期</a></li><li><a href="/about/vue/自定义model.html" class="sidebar-link">如何自己实现v-model</a></li><li><a href="/about/vue/异步渲染.html" class="sidebar-link">$nextTick异步渲染</a></li><li><a href="/about/vue/响应式observe.html" class="sidebar-link">响应式 observe 过程</a></li><li><a href="/about/vue/模版渲染.html" class="sidebar-link">模版编译</a></li><li><a href="/about/vue/组件通信.html" class="sidebar-link">组件通信</a></li><li><a href="/about/vue/vue3.html" class="sidebar-link">vue3</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Wepback</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span></span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nexttick-实现"><a href="#nexttick-实现" class="header-anchor">#</a> nextTick 实现</h1> <ul><li>1 数据发生变化，触发 setter</li> <li>2 dep.notice()触发 dep 下的 weather</li> <li>3 weatcher.update(),update 有同步更新，和异步更新（queueWeather）。</li> <li>4 将一个观察者对象 weather,push 进 queue 队列，在 queue 队列中已经存在相同的 id 则该观察者对象 weather 将被跳过.利用 hash 的 map 结构 对 weather 去重，防止相同的 weather 被重复添加到 queue 中。</li> <li>6 nextTick 利用事件循环，在一下次 tick 时，flushSchedulerQueue 执行所有 queue 队列中的 weather，更新视图。</li></ul> <h2 id="nexttick-的表现"><a href="#nexttick-的表现" class="header-anchor">#</a> nextTick 的表现？</h2> <p>打印的结果是 begin，为什么我们明明已经将 test 设置成了“end”,获取真实 DOM 节点的 innerText 却没有得到我们预期中的“end”，可见该操作是异步的。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
-  &lt;div&gt;
-    &lt;div ref=&quot;test&quot;&gt;{{test}}&lt;/div&gt;
-    &lt;button @click=&quot;handleClick&quot;&gt;tet&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-export default {
-    data () {
-        return {
-            test: 'begin'
-        };
-    },
-    methods () {
-        handleClick () {
-            this.test = 'end';
-            console.log(this.$refs.test.innerText);//打印“begin”
-        }
-    }
-}
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>VUE</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/about/vue/newVue时候都做了什么.html" class="sidebar-link">new Vue 时候都做了什么？</a></li><li><a href="/about/vue/vue实例挂载.html" class="sidebar-link">vue 实例挂载</a></li><li><a href="/about/vue/render函数.html" class="sidebar-link">render 函数</a></li><li><a href="/about/vue/虚拟DOM.html" class="sidebar-link">虚拟 DOM</a></li><li><a href="/about/vue/update.html" class="sidebar-link">vue 更新</a></li><li><a href="/about/vue/watch实现.html" class="sidebar-link">watch 实现</a></li><li><a href="/about/vue/nextTick.html" aria-current="page" class="active sidebar-link">$nextTick相关</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#什么时候会使用到nexttick" class="sidebar-link">什么时候会使用到nextTick？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#数据变化时-weather-如何更新" class="sidebar-link">数据变化时，weather 如何更新？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#queueweather-对-weather-去重" class="sidebar-link">queueWeather 对 weather 去重？</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#为什么会使用-nexttick" class="sidebar-link">为什么会使用 nextTick?</a></li><li class="sidebar-sub-header"><a href="/about/vue/nextTick.html#为什么我们频繁修改-data-属性-不会多次更新-view" class="sidebar-link">为什么我们频繁修改 data 属性，不会多次更新 view？</a></li></ul></li><li><a href="/about/vue/路由原理.html" class="sidebar-link">路由原理</a></li><li><a href="/about/vue/生命周期.html" class="sidebar-link">生命周期</a></li><li><a href="/about/vue/自定义model.html" class="sidebar-link">如何自己实现v-model</a></li><li><a href="/about/vue/响应式observe.html" class="sidebar-link">响应式 observe 过程</a></li><li><a href="/about/vue/模版渲染.html" class="sidebar-link">模版编译</a></li><li><a href="/about/vue/组件通信.html" class="sidebar-link">组件通信</a></li><li><a href="/about/vue/vue3.html" class="sidebar-link">vue3</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>React</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Wepback</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Http</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span></span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nexttick相关"><a href="#nexttick相关" class="header-anchor">#</a> $nextTick相关</h1> <ul><li>1 数据发生变化，触发 setter</li> <li>2 dep.notice()触发 dep 下的 weather</li> <li>3 weatcher.update(),update 有同步更新，和异步更新（queueWeather）。</li> <li>4 将一个观察者对象 weather,push 进 queue 队列，在 queue 队列中已经存在相同的 id 则该观察者对象 weather 将被跳过.利用 hash 的 map 结构 对 weather 去重，防止相同的 weather 被重复添加到 queue 中。</li> <li>6 nextTick 利用事件循环，在一下次 tick 时，flushSchedulerQueue 执行所有 queue 队列中的 weather，更新视图。</li></ul> <h2 id="什么时候会使用到nexttick"><a href="#什么时候会使用到nexttick" class="header-anchor">#</a> 什么时候会使用到nextTick？</h2> <p>vue在 beforeCreate，created阶段主要完成初始化的操作，但如果我们在初始化的阶段来获取DOM此时DOM 其实并未进行任何渲染，所以一定要把DOM相关的操作放在nextTick中。</p> <p>如果是mounted阶段，vue已经挂载和渲染完成，所以此时获取DOM是可以拿到的。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+<span class="token comment">//打印的结果是 begin，为什么我们明明已经将 test 设置成了“end”,获取真实 DOM 节点的 innerText 却没有得到我们预期中的“end”，可见该操作是异步的。</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">&quot;test&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>test<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">&quot;handleClick&quot;</span><span class="token operator">&gt;</span>tet<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+    <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            test<span class="token operator">:</span> <span class="token string">'begin'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">methods</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">handleClick</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>test <span class="token operator">=</span> <span class="token string">'end'</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>test<span class="token punctuation">.</span>innerText<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印“begin”</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-</code></pre></div><p>通过 nextTick，我们可以拿到 DOM 操作之后的结果。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
-	&lt;div class=&quot;&quot; id=&quot;app&quot;&gt;
-		&lt;span ref=&quot;msg&quot;&gt;{{msg}}&lt;/span&gt;
-	    &lt;button @click=&quot;change&quot;&gt;button&lt;/button&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+</code></pre></div><p>通过 nextTick，我们可以拿到 DOM 操作之后的结果。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+ <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;app&quot;</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>span ref<span class="token operator">=</span><span class="token string">&quot;msg&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">&quot;change&quot;</span><span class="token operator">&gt;</span>button<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
 
-&lt;script&gt;
-export default {
-	name: 'app',
-	data(){
-		return{
-			msg:'1111'
-		}
-	},
-	methods:{
-		change(){
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+ name<span class="token operator">:</span> <span class="token string">'app'</span><span class="token punctuation">,</span>
+ <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">return</span><span class="token punctuation">{</span>
+   msg<span class="token operator">:</span><span class="token string">'1111'</span>
+  <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ methods<span class="token operator">:</span><span class="token punctuation">{</span>
+  <span class="token function">change</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-            this.msg = &quot;222&quot;
-            console.log('1111',this.$refs.msg.innerHTML) //打印结果 111
-			this.$nextTick(()=&gt;{
-				console.log('1111',this.$refs.msg.innerHTML) //打印结果 222
-			})
-		},
-	}
-}
-&lt;/script&gt;
-</code></pre></div><h2 id="数据变化时-weather-如何更新"><a href="#数据变化时-weather-如何更新" class="header-anchor">#</a> 数据变化时，weather 如何更新？</h2> <ul><li>1 数据发生变化，触发 setter</li> <li>2 dep.notice()触发 dep 下的 weather</li> <li>3 weatcher.update(),update 有同步更新，和异步更新（queueWeather）。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>update () {
-    /* istanbul ignore else */
-    if (this.lazy) {
-        this.dirty = true
-    } else if (this.sync) {
-        /*同步则执行run直接渲染视图*/
-        this.run()
-    } else {
-        /*异步推送到观察者队列中，下一个tick时调用。*/
-        queueWatcher(this)
-    }
-}
-</code></pre></div><h2 id="queueweather-对-weather-去重"><a href="#queueweather-对-weather-去重" class="header-anchor">#</a> queueWeather 对 weather 去重？</h2> <ul><li>1 将一个观察者对象 weather,push 进 queue 队列，在 queue 队列中已经存在相同的 id 则该观察者对象 weather 将被跳过.</li> <li>2 利用 hash 的 map 结构 对 weather 去重，防止相同的 weather 被重复添加到 queue 中。</li> <li>3 nextTick 利用事件循环，在一下次 tick 时，执行所有 queue 队列中的 weather，更新视图。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>let has = {};
-let queue = [];
-let waiting = false;
+            <span class="token keyword">this</span><span class="token punctuation">.</span>msg <span class="token operator">=</span> <span class="token string">&quot;222&quot;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1111'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>msg<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span> <span class="token comment">//打印结果 111</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'1111'</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>msg<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span> <span class="token comment">//打印结果 222</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="数据变化时-weather-如何更新"><a href="#数据变化时-weather-如何更新" class="header-anchor">#</a> 数据变化时，weather 如何更新？</h2> <ul><li>1 数据发生变化，触发 setter</li> <li>2 dep.notice()触发 dep 下的 weather</li> <li>3 weatcher.update(),update 有同步更新，和异步更新（queueWeather）。</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token function">update</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* istanbul ignore else */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>lazy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>dirty <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sync<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">/*同步则执行run直接渲染视图*/</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">/*异步推送到观察者队列中，下一个tick时调用。*/</span>
+        <span class="token function">queueWatcher</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="queueweather-对-weather-去重"><a href="#queueweather-对-weather-去重" class="header-anchor">#</a> queueWeather 对 weather 去重？</h2> <ul><li>1 将一个观察者对象 weather,push 进 queue 队列，在 queue 队列中已经存在相同的 id 则该观察者对象 weather 将被跳过.</li> <li>2 利用 hash 的 map 结构 对 weather 去重，防止相同的 weather 被重复添加到 queue 中。</li> <li>3 nextTick 利用事件循环，在一下次 tick 时，执行所有 queue 队列中的 weather，更新视图。</li></ul> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">let</span> has <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> queue <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> waiting <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-function queueWatcher(watcher) {
-    //获取weather的id
-    const id = watcher.id;
-    if (has[id] == null) {
-        has[id] = true; // {'1':true,'2':true}
-        queue.push(watcher);
+<span class="token keyword">function</span> <span class="token function">queueWatcher</span><span class="token punctuation">(</span><span class="token parameter">watcher</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//获取weather的id</span>
+    <span class="token keyword">const</span> id <span class="token operator">=</span> watcher<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>has<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        has<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// {'1':true,'2':true}</span>
+        queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>watcher<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if (!waiting) {
-            waiting = true;
-            nextTick(flushSchedulerQueue);
-        }
-    }
-}
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>waiting<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            waiting <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token function">nextTick</span><span class="token punctuation">(</span>flushSchedulerQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 ## 
 
-function flushSchedulerQueue () {
-    let watcher, id;
+<span class="token keyword">function</span> <span class="token function">flushSchedulerQueue</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> watcher<span class="token punctuation">,</span> id<span class="token punctuation">;</span>
 
-    for (index = 0; index &lt; queue.length; index++) {
-        watcher = queue[index];
-        id = watcher.id;
-        has[id] = null;
-        watcher.run();
-    }
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> queue<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        watcher <span class="token operator">=</span> queue<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        id <span class="token operator">=</span> watcher<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+        has<span class="token punctuation">[</span>id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        watcher<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    waiting  = false;
-}
+    waiting  <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre></div><h2 id="为什么会使用-nexttick"><a href="#为什么会使用-nexttick" class="header-anchor">#</a> 为什么会使用 nextTick?</h2> <p>vue 中我们修改 data 中的 key，并不可能每一次修改 data 中的 key 都要渲染一下页面。在 vue 中会把多次对 data 中 key 的修改合并，放在一个事件循环中，然后利用事件循环机制，当前这个事件循环对 key 的所有修改都结束会调用一个 nextTick 函数，标志此时渲染结束。</p> <p>事件循环的事件执行完，先通过 Promise 实现 nextTick 如果 nextTick 不支持使用 MucationObserver 如果 MucationObserver 不支持使用 setTimeOut。</p> <p>修改数据时，视图并不会即时的更新，而是等在同一事件循环的所有数据变化完成后，再进行视图更新。类似于 Event Loop 事件循环机制。</p> <p>Vue 实现响应式并不是在数据改变后就立即更新 DOM，而是在一次事件循环的所有数据变化后再异步执行 DOM 更新.</p> <p>nextTick</p> <h2 id="为什么我们频繁修改-data-属性-不会多次更新-view"><a href="#为什么我们频繁修改-data-属性-不会多次更新-view" class="header-anchor">#</a> 为什么我们频繁修改 data 属性，不会多次更新 view？</h2> <p>当我们同时修改多次 data 属性时候，该判断 if (has[id] == null) 防止重复添加更新任务，并且利用了 event loop 机制在合适的时机去更新视图。</p> <p>在 update 方法中，实际调用 nextTick 更新视图。
-在事件循环中，当前宏任务调用栈清空才会去执行微任务。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/zhaohongwei978/edit/master/docs/about/vue/nextTick.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/1/22 下午9:03:59</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+在事件循环中，当前宏任务调用栈清空才会去执行微任务。</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/zhaohongwei978/edit/master/docs/about/vue/nextTick.md" target="_blank" rel="noopener noreferrer">在github上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/4/9 下午7:21:22</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/about/vue/watch实现.html" class="prev">
         watch 实现
@@ -145,6 +150,6 @@ function flushSchedulerQueue () {
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/assets/js/app.274e6c83.js" defer></script><script src="/assets/js/2.efaf6d33.js" defer></script><script src="/assets/js/48.824be7f2.js" defer></script><script src="/assets/js/5.822c1d74.js" defer></script>
+    <script src="/assets/js/app.a3da91ab.js" defer></script><script src="/assets/js/2.53bcdd8f.js" defer></script><script src="/assets/js/55.65db386b.js" defer></script><script src="/assets/js/5.e13b5350.js" defer></script>
   </body>
 </html>
